@@ -25,6 +25,7 @@ void inOrderTraversal(TreeNode* root) {
     inOrderTraversal(root->right);
 }
 
+//计算二叉树的深度
 int getDepth(TreeNode* root) {
 
     int Depth = 1;
@@ -43,6 +44,16 @@ int getDepth(TreeNode* root) {
 
 }
 
+int getCNo(TreeNode* root) {
+    if (root == NULL) {
+
+        return 0;
+    }else {
+
+        return 1 + getCNo(root->left) + getCNo(root->right);
+    }
+}
+
 
 int main() {
     // 创建一个简单的二叉树
@@ -56,7 +67,16 @@ int main() {
     cout << "In-order traversal: ";
     inOrderTraversal(root);
     cout << endl;
+
+    // 计算二叉树的深度
+    cout << "get-depth from the tree: ";
     cout << getDepth(root);
+    cout << endl;
+
+    // 输出二叉树的节点数
+    cout << "count the nodes from the tree: ";
+    cout << getCNo(root);
+    cout << endl;
 
     return 0;
 }
